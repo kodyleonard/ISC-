@@ -8,3 +8,16 @@ gc_content <- function(sequence){
   return(gc)
 }
 print(gc_content(str_to_lower(houseelf$dnaseq)))
+
+#Problem 7
+get_size_class <- function(ear_length){
+  # Calculate the size class for one or more earth lengths
+  ear_lengths <- ifelse(ear_length > 10, "large", "small")
+  return(ear_lengths)
+}
+
+elf_table <- data.frame(ID=houseelf$id,Ear_class=houseelf$earlength, 
+                        GC.content=gc_content(str_to_lower(houseelf$dnaseq)))
+
+write.csv(elf_table, file="elf_table.csv")
+
